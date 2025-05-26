@@ -71,7 +71,7 @@ class Mp3PlayerScreen extends StatelessWidget {
             children: [
               // Pick audio file button
               ElevatedButton.icon(
-                onPressed: controller.pickAudioFile,
+                onPressed: controller.pickMultipleAudioFiles,
                 icon: Icon(Icons.folder_open,
                     color: controller.isDarkMode.value
                         ? Colors.white
@@ -147,7 +147,7 @@ class Mp3PlayerScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Obx(() => Text(controller.songTitle.value.tr,
+                        Obx(() => Text(controller.songTitle.value,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18,
@@ -214,17 +214,21 @@ class Mp3PlayerScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.shuffle,
-                          color: controller.isDarkMode.value
-                              ? Colors.white
-                              : Colors.black)),
+                    onPressed: () {
+                      // TODO: Implement shuffle if you want
+                    },
+                    icon: Icon(Icons.shuffle,
+                        color: controller.isDarkMode.value
+                            ? Colors.white
+                            : Colors.black),
+                  ),
                   IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.skip_previous,
-                          color: controller.isDarkMode.value
-                              ? Colors.white
-                              : Colors.black)),
+                    onPressed: controller.playPreviousSong,
+                    icon: Icon(Icons.skip_previous,
+                        color: controller.isDarkMode.value
+                            ? Colors.white
+                            : Colors.black),
+                  ),
                   IconButton(
                     onPressed: controller.togglePlayPause,
                     icon: Icon(
@@ -237,19 +241,23 @@ class Mp3PlayerScreen extends StatelessWidget {
                             : Colors.black),
                   ),
                   IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.skip_next,
-                          color: controller.isDarkMode.value
-                              ? Colors.white
-                              : Colors.black)),
+                    onPressed: controller.playNextSong,
+                    icon: Icon(Icons.skip_next,
+                        color: controller.isDarkMode.value
+                            ? Colors.white
+                            : Colors.black),
+                  ),
                   IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.share,
-                          color: controller.isDarkMode.value
-                              ? Colors.white
-                              : Colors.black)),
+                    onPressed: () {
+                      // TODO: Implement share if you want
+                    },
+                    icon: Icon(Icons.share,
+                        color: controller.isDarkMode.value
+                            ? Colors.white
+                            : Colors.black),
+                  ),
                 ],
-              ),
+              )
             ],
           ),
         ),
