@@ -23,7 +23,6 @@ class Mp3PlayerScreen extends StatelessWidget {
                       ? Colors.white
                       : Colors.black)),
           actions: [
-            // Currency switch dropdown
             DropdownButton<Locale>(
               value: controller.currentLocale.value,
               dropdownColor:
